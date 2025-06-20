@@ -2,15 +2,16 @@ package main
 
 import (
 	"context"
-	"github.com/NikitaKurabtsev/user-service/internal/adapters/in/handlers"
-	"github.com/NikitaKurabtsev/user-service/internal/adapters/out/repository"
-	"github.com/NikitaKurabtsev/user-service/internal/core/services"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/NikitaKurabtsev/user-service/internal/adapters/in/handlers"
+	"github.com/NikitaKurabtsev/user-service/internal/adapters/out/repository"
+	"github.com/NikitaKurabtsev/user-service/internal/core/services"
 )
 
 func main() {
@@ -29,9 +30,6 @@ func main() {
 		IdleTimeout:  15 * time.Second,
 	}
 
-	stop := make(chan os.Signal, 1)
-	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
-
 	go func() {
 		log.Println("starting server on :8000")
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
@@ -39,6 +37,8 @@ func main() {
 		}
 	}()
 
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
 	<-stop
 	log.Println("Shutting down server...")
 

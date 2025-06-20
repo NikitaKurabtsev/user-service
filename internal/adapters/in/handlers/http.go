@@ -2,8 +2,9 @@ package handlers
 
 import (
 	"encoding/json"
-	"github.com/NikitaKurabtsev/user-service/internal/ports"
 	"net/http"
+
+	"github.com/NikitaKurabtsev/user-service/internal/ports"
 )
 
 type UserHandler struct {

@@ -2,8 +2,9 @@ package repository
 
 import (
 	"fmt"
-	"github.com/NikitaKurabtsev/user-service/internal/core/entity"
 	"sync"
+
+	"github.com/NikitaKurabtsev/user-service/internal/core/entity"
 )
 
 type userModel struct {
