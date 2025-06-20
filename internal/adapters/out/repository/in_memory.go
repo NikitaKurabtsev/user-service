@@ -19,10 +19,10 @@ func toEntity(u *userModel) *entity.User {
 	}
 }
 
-func fromEntity(user *entity.User) *userModel {
+func fromEntity(u *entity.User) *userModel {
 	return &userModel{
-		id:       user.ID,
-		username: user.Username,
+		id:       u.ID,
+		username: u.Username,
 	}
 }
 
