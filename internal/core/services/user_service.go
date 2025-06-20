@@ -2,6 +2,7 @@ package services
 
 import (
 	"errors"
+
 	"github.com/NikitaKurabtsev/user-service/internal/core/entity"
 	"github.com/NikitaKurabtsev/user-service/internal/ports"
 	"github.com/google/uuid"
